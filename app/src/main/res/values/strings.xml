@@ -3,4 +3,12 @@
     <string name="welcome_message">Welcome to Sample App!</string>
     <string name="click_me">Click Me!</string>
     <string name="initial_count">Button clicked 0 times</string>
+    <plurals name="click_count">
+        <item quantity="one">Button clicked %1$d time</item>
+        <item quantity="other">Button clicked %1$d times</item>
+    </plurals>
+    <plurals name="click_toast">
+        <item quantity="one">Wow! You\'ve clicked %1$d time!</item>
+        <item quantity="other">Wow! You\'ve clicked %1$d times!</item>
+    </plurals>
 </resources>

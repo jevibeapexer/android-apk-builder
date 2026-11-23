@@ -13,16 +13,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val welcomeText = findViewById<TextView>(R.id.welcomeText)
         val clickButton = findViewById<Button>(R.id.clickButton)
         val countText = findViewById<TextView>(R.id.countText)
 
         clickButton.setOnClickListener {
             clickCount++
-            countText.text = "Button clicked $clickCount times"
-            
+            countText.text = resources.getQuantityString(R.plurals.click_count, clickCount, clickCount)
+
             if (clickCount % 5 == 0) {
-                Toast.makeText(this, "Wow! You've clicked $clickCount times!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, resources.getQuantityString(R.plurals.click_toast, clickCount, clickCount), Toast.LENGTH_SHORT).show()
             }
         }
     }
