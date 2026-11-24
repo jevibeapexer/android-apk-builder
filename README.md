@@ -1,12 +1,12 @@
 # 📱 Android APK Builder - No Android Studio Required!
 
-[![Build Status](https://github.com/wasishah33/android-apk-builder/actions/workflows/android-build.yml/badge.svg?branch=main)](https://github.com/wasishah33/android-apk-builder/actions/workflows/android-build.yml)
-[![License](https://img.shields.io/github/license/wasishah33/android-apk-builder)](LICENSE)
-[![Stars](https://img.shields.io/github/stars/wasishah33/android-apk-builder?style=social)](https://github.com/wasishah33/android-apk-builder/stargazers)
-[![Forks](https://img.shields.io/github/forks/wasishah33/android-apk-builder?style=social)](https://github.com/wasishah33/android-apk-builder/network/members)
-[![Open Issues](https://img.shields.io/github/issues/wasishah33/android-apk-builder)](https://github.com/wasishah33/android-apk-builder/issues)
-[![Open PRs](https://img.shields.io/github/issues-pr/wasishah33/android-apk-builder)](https://github.com/wasishah33/android-apk-builder/pulls)
-[![Last Commit](https://img.shields.io/github/last-commit/wasishah33/android-apk-builder)](https://github.com/wasishah33/android-apk-builder/commits)
+[![Build Status](https://github.com/jevibeapexer/android-apk-builder/actions/workflows/android-build.yml/badge.svg?branch=main)](https://github.com/jevibeapexer/android-apk-builder/actions/workflows/android-build.yml)
+[![License](https://img.shields.io/github/license/jevibeapexer/android-apk-builder)](LICENSE)
+[![Stars](https://img.shields.io/github/stars/jevibeapexer/android-apk-builder?style=social)](https://github.com/jevibeapexer/android-apk-builder/stargazers)
+[![Forks](https://img.shields.io/github/forks/jevibeapexer/android-apk-builder?style=social)](https://github.com/jevibeapexer/android-apk-builder/network/members)
+[![Open Issues](https://img.shields.io/github/issues/jevibeapexer/android-apk-builder)](https://github.com/jevibeapexer/android-apk-builder/issues)
+[![Open PRs](https://img.shields.io/github/issues-pr/jevibeapexer/android-apk-builder)](https://github.com/jevibeapexer/android-apk-builder/pulls)
+[![Last Commit](https://img.shields.io/github/last-commit/jevibeapexer/android-apk-builder)](https://github.com/jevibeapexer/android-apk-builder/commits)
 
 ![Kotlin](https://img.shields.io/badge/Kotlin-1.9-7F52FF?logo=kotlin&logoColor=white)
 ![Gradle](https://img.shields.io/badge/Gradle-8.0-02303A?logo=gradle&logoColor=white)
@@ -19,11 +19,33 @@ A complete Android project template that demonstrates how to build APK files usi
 
 ## 🚀 Quick Start
 
-1. **[Fork this repository](https://github.com/wasishah33/android-apk-builder/fork)**
-2. **Clone to your computer**: `git clone https://github.com/wasishah33/android-apk-builder.git`
+1. **[Fork this repository](https://github.com/jevibeapexer/android-apk-builder/fork)**
+2. **Clone to your computer**: `git clone https://github.com/jevibeapexer/android-apk-builder.git`
 3. **Make your changes** (see [Customization Guide](#-customization-guide))
 4. **Push to GitHub**: GitHub Actions automatically builds your APK
 5. **Download your APK** from the Actions tab
+
+## Validation
+
+GitHub Actions builds the debug and unsigned release APKs, runs Android lint and
+unit tests, and uploads APKs and reports on pushes to `main`, `master`, and
+`arena/**` branches, or on pull requests targeting `main` or `master`.
+
+For local validation, install JDK 17 and Android SDK platform 34, configure
+`ANDROID_HOME` (or `sdk.dir` in `local.properties`), then run:
+
+```bash
+./gradlew build
+```
+
+UI regression tests cover counter updates and activity recreation. Run them on a
+connected Android device or emulator (they are not run by the build-only CI job):
+
+```bash
+./gradlew connectedDebugAndroidTest
+```
+
+The release APK is unsigned and must be signed before installation or distribution.
 
 ## 📋 Prerequisites
 
@@ -63,7 +85,7 @@ A complete Android project template that demonstrates how to build APK files usi
 #### Option A: Fork This Repository (Recommended)
 1. Click the **"Fork"** button at the top of this repository
 2. This creates your own copy that you can modify
-3. Clone your fork: `git clone https://github.com/wasishah33/android-apk-builder.git`
+3. Clone your fork: `git clone https://github.com/jevibeapexer/android-apk-builder.git`
 
 #### Option B: Download and Create New Repository
 1. Click **"Code" → "Download ZIP"**
@@ -457,9 +479,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 💬 Support
 
 ### Getting Help
-- 🐛 **Bug Reports**: [Create an Issue](https://github.com/wasishah33/android-apk-builder/issues)
-- 💡 **Feature Requests**: [Create an Issue](https://github.com/wasishah33/android-apk-builder/issues)
-- 💬 **Questions**: [Start a Discussion](https://github.com/wasishah33/android-apk-builder/discussions)
+- 🐛 **Bug Reports**: [Create an Issue](https://github.com/jevibeapexer/android-apk-builder/issues)
+- 💡 **Feature Requests**: [Create an Issue](https://github.com/jevibeapexer/android-apk-builder/issues)
+- 💬 **Questions**: [Start a Discussion](https://github.com/jevibeapexer/android-apk-builder/discussions)
 - 📧 **Direct Contact**: your.email@example.com
 
 ### Community
@@ -499,6 +521,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Made with ❤️ by developers, for developers**
 
-[⭐ Star this repository](https://github.com/wasishah33/android-apk-builder) • [🐛 Report Bug](https://github.com/wasishah33/android-apk-builder/issues) • [💡 Request Feature](https://github.com/wasishah33/android-apk-builder/issues)
+[⭐ Star this repository](https://github.com/jevibeapexer/android-apk-builder) • [🐛 Report Bug](https://github.com/jevibeapexer/android-apk-builder/issues) • [💡 Request Feature](https://github.com/jevibeapexer/android-apk-builder/issues)
 
 </div>
