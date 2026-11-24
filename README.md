@@ -126,17 +126,64 @@ sudo apt install git
 
 ## 🔧 How to Download Your APK
 
-### Method 1: From GitHub Actions (Recommended)
-1. **Navigate** to your repository on GitHub
-2. **Click** the "Actions" tab
-3. **Select** the latest successful workflow run (green checkmark ✅)
-4. **Scroll down** to the "Artifacts" section
-5. **Download** your APK:
-   - `app-debug.apk` - For testing (recommended)
-   - `app-release-unsigned.apk` - For distribution (needs signing)
+### Method 1: From GitHub Releases (Recommended)
+APKs are attached to GitHub Releases automatically whenever a version tag is pushed:
 
-### Method 2: Direct Links
-GitHub provides direct download links for artifacts, but they expire after 90 days.
+1. Go to your repository on GitHub
+2. Click **"Releases"** (right side, or under the repo name)
+3. Click the latest release (e.g. `v1.0.0`)
+4. Download the APK from the **"Assets"** section:
+   - `SampleApp-vX.Y.Z-debug.apk` — for testing (recommended)
+   - `SampleApp-vX.Y.Z-release-unsigned.apk` — for distribution (needs signing)
+
+These links never expire, unlike Actions artifacts.
+
+### Method 2: From GitHub Actions
+1. Go to the **"Actions"** tab
+2. Click the latest successful workflow run (green checkmark ✅)
+3. Scroll to **"Artifacts"** and download `app-debug` or `app-release`
+4. Unzip the downloaded file to get the APK
+
+Note: artifact links expire after 90 days; Releases are permanent.
+
+## 📦 How to Publish an APK to Releases
+
+The workflow builds and attaches APKs to a GitHub Release automatically. To publish a new version:
+
+```bash
+# 1. Commit your changes
+git add .
+git commit -m "Describe your changes"
+
+# 2. Push to GitHub
+git push origin main
+
+# 3. Tag the release and push the tag — this triggers the release build
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+What happens next (all automatic, watch it in the **Actions** tab):
+1. A workflow run builds the debug and release APKs (~2–5 minutes)
+2. The **release** job creates a GitHub Release named after your tag (e.g. `v1.0.0`)
+3. Both APKs are attached to the release with version numbers in the filenames
+
+Rules:
+- Tag names must start with `v` (e.g. `v1.0.0`, `v2.1.3`) — the workflow only reacts to `v*` tags
+- Always tag the commit you want released; bump the tag number for each new version
+- Release notes are generated automatically from the commits since the last tag
+
+### Signing the release APK (optional)
+The attached `*-release-unsigned.apk` installs fine for personal testing after enabling "install unknown apps", but stores and some users expect a signed APK. To sign it locally:
+
+```bash
+# 1. Generate a keystore (once)
+keytool -genkeypair -v -keystore my-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias myalias
+
+# 2. Align and sign (requires Android SDK build-tools + apksigner)
+zipalign -f -p 4 app-release-unsigned.apk app-release-aligned.apk
+apksigner sign --ks my-release-key.jks --out SampleApp-signed.apk app-release-aligned.apk
+```
 
 ## 🎨 Customization Guide
 
